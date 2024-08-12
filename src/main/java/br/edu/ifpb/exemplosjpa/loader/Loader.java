@@ -2,12 +2,16 @@ package br.edu.ifpb.exemplosjpa.loader;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class Loader implements CommandLineRunner {
+
+    private static Logger logger = LoggerFactory.getLogger(Loader.class);
 
     @PersistenceContext
     private final EntityManager entityManager;
@@ -19,9 +23,7 @@ public class Loader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Diogo");
-        entityManager.persist(pessoa);
+        // Coloque o seu código aqui
     }
 
 }
