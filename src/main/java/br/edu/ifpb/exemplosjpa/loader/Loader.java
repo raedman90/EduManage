@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class Loader implements CommandLineRunner {
 
-    private static Logger logger = LoggerFactory.getLogger(Loader.class);
+    private static final Logger logger = LoggerFactory.getLogger(Loader.class);
 
     @PersistenceContext
     private final EntityManager entityManager;
