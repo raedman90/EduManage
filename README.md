@@ -27,6 +27,53 @@ O diagrama de entidade-relacionamento (ER) evidencia a modelagem do sistema, com
 - **Endereço**: Dados de localização de estudantes e professores.
 - **Instituição**: Escola ou universidade que oferece os cursos e disciplinas.
 
+## Diagrama de Entidade-Relacionamento
+
+Abaixo está o diagrama de entidade-relacionamento do sistema **EduManage**, que representa as entidades e seus respectivos relacionamentos:
+
+![Diagrama de Entidade-Relacionamento](https://imgur.com/jSrwidF.png)
+
+### Entidades
+- **Estudante**:
+- Atributos: id, nome, matrícula, dataNascimento, endereço, email, telefone.
+Relacionamentos: Um estudante pode estar matriculado em várias disciplinas (Many-to-Many com Disciplina).
+
+- **Professor**:
+- Atributos: id, nome, cpf, especialidade, email, telefone.
+Relacionamentos: Um professor pode lecionar várias disciplinas (One-to-Many com Disciplina).
+
+- **Disciplina**:
+- Atributos: id, nome, cargaHorária, codigo.
+Relacionamentos: Uma disciplina pode ser lecionada por um professor (Many-to-One com Professor), pode ter vários alunos (Many-to-Many com Estudante), e estar vinculada a várias turmas (One-to-Many com Turma).
+
+- **Turma**:
+- Atributos: id, codigo, anoLetivo, turno, sala.
+Relacionamentos: Uma turma pode ter várias disciplinas (One-to-Many com Disciplina) e vários estudantes (Many-to-Many com Estudante).
+
+- **Curso**:
+- Atributos: id, nome, descricao, duracao.
+Relacionamentos: Um curso pode ter várias disciplinas (One-to-Many com Disciplina) e vários estudantes matriculados (One-to-Many com Estudante).
+
+- **Matrícula**:
+- Atributos: id, dataMatricula, situacao.
+Relacionamentos: Uma matrícula envolve um estudante e uma turma (Many-to-One com Estudante e Many-to-One com Turma).
+
+- **Nota**:
+- Atributos: id, valor, dataAtribuicao.
+Relacionamentos: Uma nota está associada a um estudante e a uma disciplina (Many-to-One com Estudante e Many-to-One com Disciplina).
+
+- **Avaliação**:
+- Atributos: id, tipo, data, peso.
+Relacionamentos: Uma avaliação está vinculada a uma disciplina e a várias notas (One-to-Many com Nota).
+
+- **Endereço (Entidade separada, associada a Estudante e Professor)**:
+- Atributos: id, rua, cidade, estado, cep, pais.
+Relacionamentos: Um endereço pode estar associado a um estudante ou a um professor (One-to-One).
+
+- **Instituição**:
+- Atributos: id, nome, endereco, telefone, email.
+Relacionamentos: Uma instituição pode ter vários cursos (One-to-Many com Curso) e várias turmas (One-to-Many com Turma).
+
 ## Requisitos
 
 Para executar este projeto, você precisará dos seguintes softwares instalados em sua máquina:
